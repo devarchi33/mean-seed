@@ -13,6 +13,10 @@
 	<!-- JS -->
 	<script src="libs/angular/angular.min.js"></script>
 	<script src="libs/angular-route/angular-route.min.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="libs/jquery/dist/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="libs/bootstrap//dist/js/bootstrap.min.js"></script>
 
 	<!-- Kakao -->
 	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
@@ -30,24 +34,34 @@
 	<script src="js/kakao/login.js"></script>
 </head>
 <body ng-app="sampleApp" ng-controller="NerdController">
-<div class="container">
-	
-	<!-- HEADER -->
-	<nav class="navbar navbar-inverse">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/">Stencil: Node and Angular</a>
-		</div>
-		<ul class="nav navbar-nav">
-			<li><a href="/nerds">Nerds</a></li>
-			<li><a href="/geeks">Geeks</a></li>
-			<li><a href="/template01">template01</a></li>
-			<li><a href="/kakao/login">KakaoLogin</a></li>
-		</ul>
-	</nav>
+	<div class="container">
 
-	<!-- ANGULAR DYNAMIC CONTENT -->
-	<div ng-view></div>
+		<!-- HEADER -->
+		<nav class="navbar navbar-inverse">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">skyfly33: Node and Angular</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="/nerds">Nerds</a></li>
+				<li><a href="/geeks">Geeks</a></li>
+				
+				<li><a href="/kakao/login">KakaoLogin</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Template <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a onclick="window.open('http://localhost:8080/template01')">Template01</a></li>
+						<li><a onclick="window.open('http://localhost:8080/startbootstrap-creative/index.html')">Template02</a></li>
+						<li><a onclick="window.open('http://localhost:8080/startbootstrap-clean-blog/index.html')">Template03</a></li>
+						<li><a onclick="window.open('http://localhost:8080/startbootstrap-one-page-wonder/index.html')">Template04</a></li>
+						<li><a onclick="window.open('http://localhost:8080/startbootstrap-sb-admin-2/index.html')">Template05</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
 
-</div>
+		<!-- ANGULAR DYNAMIC CONTENT -->
+		<div ng-view></div>
+
+	</div>
 </body>
 </html>
