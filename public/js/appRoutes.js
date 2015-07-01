@@ -21,6 +21,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		.when('/kakao/login', {
 			templateUrl: 'views/kakaologin.html',
 			controller: 'KakaoController'	
+		})
+
+		.when('/test', {
+			templateUrl: 'views/test.html',
+			controller: 'TestController'	
 		});
 
 	$locationProvider.html5Mode(true);
