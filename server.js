@@ -1,18 +1,20 @@
 // modules =================================================
 var express        = require('express');
 var app            = express();
-var mongoose       = require('mongoose');
+// var mongoose       = require('mongoose');
+var mongojs = require('mongojs');
+var db = mongojs('contactlist',['contactlist']);
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 
 // configuration ===========================================
 	
 // config files
-var db = require('./config/db');
+// var db = require('./config/db');
 
 var port = process.env.PORT || 8080; // set our port
 // connect to our mongoDB database (commented out after you enter in your own credentials)
-mongoose.connect(db.url); 
+// mongoose.connect(db.url); 
 
 // get all data/stuff of the body (POST) parameters
 app.use(bodyParser.json()); // parse application/json 
@@ -29,26 +31,33 @@ require('./app/routes')(app); // pass our application into our routes
 app.get('/contactlist', function (req, res) {
 	console.log('server.js(server log) : I received a GET request!');
 
-	person1 = {
-    	name : "DonghoonLee",
-    	email : "skyfly33727@gamil.com",
-    	number : "010-2057-5000"
-    };
+	//dummy data
+	// person1 = {
+ //    	name : "DonghoonLee",
+ //    	email : "skyfly33727@gamil.com",
+ //    	number : "010-2057-5000"
+ //    };
 
-    person2 = {
-    	name : "RoseKim",
-    	email : "rosekm92@iruen.com",
-    	number : "010-2057-6000"
-    };
+ //    person2 = {
+ //    	name : "RoseKim",
+ //    	email : "rosekm92@iruen.com",
+ //    	number : "010-2057-6000"
+ //    };
 
-    person3 = {
-    	name : "YwSon",
-    	email : "sonyw@iruen.com",
-    	number : "010-2057-7000"
-    };
+ //    person3 = {
+ //    	name : "YwSon",
+ //    	email : "sonyw@iruen.com",
+ //    	number : "010-2057-7000"
+ //    };
 
-    var contactlist = [person1, person2, person3];
-    res.json(contactlist);
+ //    var contactlist = [person1, person2, person3];
+ //    res.json(contactlist);
+
+ db.contactlist.find(function(err, docs) {
+ 	console.log('docs : ' + docs);
+ 	res.json(docs)
+ });
+
 });
 
 // start app ===============================================
