@@ -42,4 +42,11 @@ angular.module('TestCtrl', []).controller('TestController', function($scope, $ht
     	});
     };
 
+    $scope.remove = function(id) {
+    	console.log(id);
+    	$http.delete('/contactlist/' + id).success(function(response) {
+    		refresh();
+    	});
+    };
+
 });

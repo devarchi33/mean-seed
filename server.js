@@ -66,6 +66,14 @@ app.post('/contactlist', function (req, res) {
 	});
 });
 
+app.delete('/contactlist/:id', function (req, res) {
+	var id = req.params.id;
+	console.log(id);
+	db.contactlist.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
+		res.json(doc);
+	});
+});
+
 // start app ===============================================
 app.listen(port);	
 console.log('Magic happens on port ' + port); 			// shoutout to the user
