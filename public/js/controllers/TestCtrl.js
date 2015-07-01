@@ -1,9 +1,13 @@
 angular.module('TestCtrl', []).controller('TestController', function($scope, $http) {
 
-$http.get('/contactlist').success(function(response){
-	console.log('TestCtrl(browser log) : I received the data requested!');
-	$scope.contactlist = response;
-});
+	var refresh = function() {
+		$http.get('/contactlist').success(function(response){
+			console.log('TestCtrl(browser log) : I received the data requested!');
+			$scope.contactlist = response;
+		});
+	};
+
+	refresh();
 
 	console.log('This is test controller!');
 
@@ -29,5 +33,13 @@ $http.get('/contactlist').success(function(response){
 
     // var contactlist = [person1, person2, person3];
     // $scope.contactlist = contactlist;
+
+    $scope.addContact = function() {
+    	console.log($scope.contact);
+    	$http.post('/contactlist', $scope.contact).success(function(response) {
+    		console.log(response);
+    		refresh();
+    	});
+    };
 
 });

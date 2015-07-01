@@ -53,11 +53,17 @@ app.get('/contactlist', function (req, res) {
  //    var contactlist = [person1, person2, person3];
  //    res.json(contactlist);
 
- db.contactlist.find(function(err, docs) {
- 	console.log('docs : ' + docs);
- 	res.json(docs)
- });
+	 db.contactlist.find(function(err, docs) {
+	 	console.log('docs : ' + docs);
+	 	res.json(docs)
+	 });
+});
 
+app.post('/contactlist', function (req, res) {
+	console.log(req.body);
+	db.contactlist.insert(req.body, function(err, doc) {
+		res.json(doc);
+	});
 });
 
 // start app ===============================================
