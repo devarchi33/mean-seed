@@ -25,6 +25,32 @@ app.use(express.static(__dirname + '/public')); // set the static files location
 // routes ==================================================
 require('./app/routes')(app); // pass our application into our routes
 
+// http ==================================================
+app.get('/contactlist', function (req, res) {
+	console.log('server.js(server log) : I received a GET request!');
+
+	person1 = {
+    	name : "DonghoonLee",
+    	email : "skyfly33727@gamil.com",
+    	number : "010-2057-5000"
+    };
+
+    person2 = {
+    	name : "RoseKim",
+    	email : "rosekm92@iruen.com",
+    	number : "010-2057-6000"
+    };
+
+    person3 = {
+    	name : "YwSon",
+    	email : "sonyw@iruen.com",
+    	number : "010-2057-7000"
+    };
+
+    var contactlist = [person1, person2, person3];
+    res.json(contactlist);
+});
+
 // start app ===============================================
 app.listen(port);	
 console.log('Magic happens on port ' + port); 			// shoutout to the user

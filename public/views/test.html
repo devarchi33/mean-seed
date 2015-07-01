@@ -2,4 +2,25 @@
 	<h1>Test Page</h1>
 
 	<p>{{ tagline }}</p>
+
+	<input type="text" ng-model="test">
+	<h1>{{test}}</h1>
+</div>
+<div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Number</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="contact in contactlist">
+				<td>{{contact.name}}</td>
+				<td>{{contact.email}}</td>
+				<td>{{contact.number}}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
