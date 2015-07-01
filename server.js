@@ -54,7 +54,8 @@ app.get('/contactlist', function (req, res) {
  //    res.json(contactlist);
 
 	 db.contactlist.find(function(err, docs) {
-	 	console.log('docs : ' + docs);
+	 	console.log('docs : ');
+	 	console.log(docs);
 	 	res.json(docs)
 	 });
 });
@@ -68,7 +69,7 @@ app.post('/contactlist', function (req, res) {
 
 app.delete('/contactlist/:id', function (req, res) {
 	var id = req.params.id;
-	console.log(id);
+	console.log("id : " + id);
 	db.contactlist.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
 		res.json(doc);
 	});
@@ -76,7 +77,7 @@ app.delete('/contactlist/:id', function (req, res) {
 
 app.get('/contactlist/:id', function (req, res) {
 	var id = req.params.id;
-	console.log(id);
+	console.log("id : " + id);
 	db.contactlist.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
 		res.json(doc);
 	});

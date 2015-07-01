@@ -35,29 +35,31 @@ angular.module('TestCtrl', []).controller('TestController', function($scope, $ht
     // $scope.contactlist = contactlist;
 
     $scope.addContact = function() {
+        console.log("scope : ");
     	console.log($scope.contact);
     	$http.post('/contactlist', $scope.contact).success(function(response) {
+            console.log("response : ");
     		console.log(response);
     		refresh();
     	});
     };
 
     $scope.remove = function(id) {
-    	console.log(id);
-    	$http.delete('/contactlist/' + id).success(function(response) {
-    		refresh();
-    	});
+        console.log("id : " + id);
+        $http.delete('/contactlist/' + id).success(function(response) {
+            refresh();
+        });
     };
 
     $scope.edit = function(id) {
-    	console.log(id);
+    	console.log("id : " + id);
     	$http.get('/contactlist/' + id).success(function(response) {
     		$scope.contact = response;
     	});
     };
 
     $scope.update = function() {
-    	console.log($scope.contact._id);
+    	console.log("scope.contact._id : " + $scope.contact._id);
     	$http.put('/contactlist/' + $scope.contact._id, $scope.contact).success(function(response){
     		refresh();
     	});
