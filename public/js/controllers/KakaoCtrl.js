@@ -12,7 +12,7 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
     $scope.kakaoSave = function(userInfo) {
         console.log("scope : ");
         console.log(userInfo);
-        $http.post('/kakaousersave', userInfo).success(function(response) {
+        $http.post('/kakaousersave', $scope.userInfo).success(function(response) {
             console.log("response : ");
             console.log(response);
             refresh();
@@ -24,17 +24,6 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
     };
 
     $scope.kakaoDelete = function() {
-
-    };
-
-	$scope.kakaoLogin = function() {
-        console.log("scope : ");
-    	console.log($scope);
-
-    	var access_token = Kakao.Auth.getAccessToken();
-    	console.log("access_token : " + access_token);
-    	var refresh_token = Kakao.Auth.getRefreshToken();
-    	console.log("refresh_token : " + refresh_token);
 
     };
 
@@ -74,13 +63,6 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
                     "thumbnail_image" : arr2.thumbnail_image,
                     "profile_image" : arr2.profile_image
                 }
-
-                $http.post('/kakaousersave', $scope.userInfo).success(function(response) {
-                    console.log("response : ");
-                    console.log(response);
-                    refresh();
-                });
-
             },
             fail: function(error) {
               alert("먼저 로그인 해주세요.");

@@ -4,6 +4,7 @@ var app            = express();
 // var mongoose       = require('mongoose');
 var mongojs = require('mongojs');
 var db = mongojs('contactlist',['contactlist']);
+var db2 = mongojs('kakaouserlist',['kakaouserlist']);
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 
@@ -103,7 +104,7 @@ app.post('/kakaousersave', function (req, res) {
 	userInfo.id = "33192560";
 	console.log(userInfo);
 
-	db.kakaouserlist.insert(userInfo, function(err, doc) {
+	db2.kakaouserlist.insert(userInfo, function(err, doc) {
 		res.json(doc);
 	});
 });
