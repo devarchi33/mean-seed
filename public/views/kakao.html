@@ -3,45 +3,9 @@
 
 	<p>{{ tagline }}</p>
 
-	<div class="thumbnail" style="width: 300px; position:relative; left: 360px;">
-		<img src="{{ userThumbnail }}" class="img-thumbnail">
-		<div class="caption">
-			<h3>Kakao UserInfo</h3>
-			<p>카카오 사용자 정보</p>
-			<p><small>ID : {{ userId }}</small></p>
-			<p><small>NickName : {{ userNinckName }}</small></p>
-		</div>
-	</div>
+	
 </div>
-<table class="table">
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>NickName</th>
-			<th>Thumbnail</th>
-			<th>Profile</th>
-			<th>age</th>
-			<th>Action</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><input type="text" class="form-control" ng-model="userInfo.id"></td>
-			<td><input type="text" class="form-control" ng-model="userInfo.nickname"></td>
-			<td><input type="text" class="form-control" ng-model="userInfo.thumbnail_image"></td>
-			<td><input type="text" class="form-control" ng-model="userInfo.profile_image"></td>
-			<td><input type="text" class="form-control" ng-model="userInfo.age"></td>
-		    <td><button type="button" class="btn btn-info" ng-click="kakaoSave(userInfo)">Save</button>
-		</tr>
-		<tr ng-repeat="kakaouser in kakaouserlist">
-			<td>{{ kakaouser.id }}</td>
-			<td>{{ kakaouser.nickname }}</td>
-			<td>{{ kakaouser.thumbnail_image }}</td>
-			<td>{{ kakaouser.profile_image }}</td>
-			<td>{{ kakaouser.age }}</td>
-		</tr>
-	</tbody>
-</table>
+
 <div class="row">
 	<div class="col-sm-6 col-md-4">
 		<div class="thumbnail">
@@ -71,3 +35,44 @@
 		</div>
 	</div>
 </div>
+<div class="row">
+	<div class="thumbnail" style="width: 300px; position:relative; left: 360px;">
+		<img src="{{ userThumbnail }}" class="img-thumbnail">
+		<div class="caption">
+			<h3>Kakao UserInfo</h3>
+			<p>카카오 사용자 정보</p>
+			<p><small>ID : {{ userId }}</small></p>
+			<p><small>NickName : {{ userNinckName }}</small></p>
+		</div>
+	</div>
+</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>NickName</th>
+			<th>Thumbnail</th>
+			<th>Profile</th>
+			<th>age</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><input type="text" class="form-control" ng-model="userInfo.id"></td>
+			<td><input type="text" class="form-control" ng-model="userInfo.nickname"></td>
+			<td><input type="text" class="form-control" ng-model="userInfo.thumbnail_image"></td>
+			<td><input type="text" class="form-control" ng-model="userInfo.profile_image"></td>
+			<td><input type="text" class="form-control" ng-model="userInfo.age"></td>
+		    <td><button type="button" class="btn btn-info" ng-click="kakaoSave(userInfo)">Save</button>
+		</tr>
+		<tr ng-repeat="kakaouser in kakaouserlist">
+			<td>{{ kakaouser.id }}</td>
+			<td>{{ kakaouser.nickname }}</td>
+			<td>{{ kakaouser.thumbnail_image }}</td>
+			<td>{{ kakaouser.profile_image }}</td>
+			<td>{{ kakaouser.age }}</td>
+		</tr>
+	</tbody>
+</table>

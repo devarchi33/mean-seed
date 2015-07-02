@@ -6,11 +6,11 @@ module.exports = function(app) {
 
 	// frontend routes =========================================================
 	// route to handle all angular requests
-	app.get('/', function(req, res) {
+	app.get('/', function (req, res) {
 		res.sendfile('./public/index.html');
 	});
 
-	app.get('/template01', function(req, res) {
+	app.get('/template01', function (req, res) {
 		res.sendfile('./public/views/template/template01.html');
 	});
 

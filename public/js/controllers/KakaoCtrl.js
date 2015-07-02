@@ -38,6 +38,8 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
         Kakao.Auth.logout();        
 
         alert("이용해 주셔서 갑사합니다.");
+
+        window.onload = setTimeout("location.href='http://localhost:8080/'");
     };
 
     $scope.kakaoGetUserInfo = function() {
