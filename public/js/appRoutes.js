@@ -18,7 +18,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'GeekController'	
 		})
 
-		.when('/kakao/login', {
+		.when('/kakao/api', {
 			templateUrl: 'views/kakao.html',
 			controller: 'KakaoController'	
 		})

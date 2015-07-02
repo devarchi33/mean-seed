@@ -6,19 +6,26 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
         console.log("scope : ");
     	console.log($scope);
 
-    	Kakao.init('db831e72d4093199ddd7954e27a2f91b');
+    	var access_token = Kakao.Auth.getAccessToken();
+    	console.log("access_token : " + access_token);
+    	var refresh_token = Kakao.Auth.getRefreshToken();
+    	console.log("refresh_token : " + refresh_token);
 
-  		var kakaoLoginBtnCreator = Kakao.Auth.createLoginButton;
+    };
 
-	    // 카카오 로그인 버튼을 생성합니다.
-	    kakaoLoginBtnCreator({
-	        success: function(authObj) {
-	          alert(JSON.stringify(authObj));
-	        },
-	        fail: function(err) {
-	          alert(JSON.stringify(err))
-	        }
-        });    	
+    $scope.kakaoLogout = function() {
+        Kakao.Auth.logout();
+
+    	var access_token = Kakao.Auth.getAccessToken();
+    	console.log("access_token : " + access_token);
+    	var refresh_token = Kakao.Auth.getRefreshToken();
+    	console.log("refresh_token : " + refresh_token);
+
+		alert("이용해 주셔서 갑사합니다.");
+		
+		var out = "";
+		document.getElementById("id01").innerHTML = out;
+	    document.getElementById("id01").style.display="block";
     };
 
 });
