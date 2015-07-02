@@ -2,6 +2,25 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
 
 	$scope.tagline = 'Kakao Controller!';
 
+    var refresh = function() {
+        $http.get('/').success(function(response){
+            console.log('get UserInfo!!');
+            $scope = response;
+        });
+    };
+
+    $scope.kakaoSave = function() {
+
+    };
+
+    $scope.kakaoUpdate = function() {
+
+    };
+
+    $scope.kakaoDelete = function() {
+
+    };
+
 	$scope.kakaoLogin = function() {
         console.log("scope : ");
     	console.log($scope);
@@ -32,7 +51,6 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
         Kakao.API.request({
             url: '/v1/user/me',
             success: function(res) {
-              // alert(JSON.stringify(res));
               var arr = res;
               console.log(arr);
               console.log("id : " + arr.id);
@@ -41,22 +59,27 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
               var arr2 = arr.properties;
               console.log("nickname : " + arr2.nickname);
               console.log("thumnail_image : " + arr2.thumbnail_image);
-              
-              var out = "<table>";
 
-              out += "<tr><td>" +
-              arr.id +
-              "</td></tr><tr><td>" +
-              arr2.nickname +
-              "</td></tr><tr><td>" +
-              "<img src= '" + arr2.thumbnail_image + "' />" +
-              "</td></tr>";
-              out += "</table>"
-              document.getElementById("id01").innerHTML = out;
+              $scope.userId = arr.id;
+              $scope.userNinckName = arr2.nickname;
+              $scope.userThumbnail = arr2.thumbnail_image;
+              $scope.userProfileImage = arr2.profile_image;
 
-              document.getElementById("id01").style.display="block";
+              refresh();
+            },
+            fail: function(error) {
+              alert(JSON.stringify(error))
+            }
+            // persistAccessToken: false
+            // persistRefreshToken: 'true'
+        });
+    };
 
-              // window.onload = setTimeout("location.href='http://skyfly33.dothome.co.kr/kakao/kakaologindemo2.html'",3000);
+    $scope.kakaoGetUserList = function() {
+        Kakao.API.request({
+            url: 'https://kapi.kakao.com/v1/user/ids',
+            success: function(res) {
+              alert("사용자 목록 가져오기!");
             },
             fail: function(error) {
               alert(JSON.stringify(error))
