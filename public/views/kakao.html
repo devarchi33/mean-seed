@@ -12,13 +12,27 @@
 			<p><small>NickName : {{ userNinckName }}</small></p>
 		</div>
 	</div>
-	<div class="btn-group" role="group" aria-label="...">
-	    <button type="button" class="btn btn-default" ng-click="kakaoSave()">Save</button>
-	    <button type="button" class="btn btn-default" ng-click="kakaoSave()">Select</button>
-	    <button type="button" class="btn btn-default" ng-click="kakaoUpdate()">Update</button>
-	    <button type="button" class="btn btn-default" ng-click="kakaoDelete()">Delete</button>
-	</div>
 </div>
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>NickName</th>
+			<th>Thumbnail</th>
+			<th>Profile</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><input type="text" class="form-control" ng-model="userInfo.id"></td>
+			<td><input type="text" class="form-control" ng-model="userInfo.nickname"></td>
+			<td><input type="text" class="form-control" ng-model="userInfo.thumbnail_image"></td>
+			<td><input type="text" class="form-control" ng-model="userInfo.profile_image"></td>
+		    <td><button type="button" class="btn btn-info" ng-click="kakaoSave(userInfo)">Save</button></td>
+		</tr>
+	</tbody>
+</table>
 <div class="row">
 	<div class="col-sm-6 col-md-4">
 		<div class="thumbnail">

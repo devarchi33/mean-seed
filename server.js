@@ -95,6 +95,19 @@ app.put('/contactlist/:id', function (req, res) {
 		});
 });
 
+// kakao mongodb
+app.post('/kakaousersave', function (req, res) {
+	
+	var userInfo = req.body;
+	var id = req.body.id;
+	userInfo.id = "33192560";
+	console.log(userInfo);
+
+	db.kakaouserlist.insert(userInfo, function(err, doc) {
+		res.json(doc);
+	});
+});
+
 // start app ===============================================
 app.listen(port);	
 console.log('Magic happens on port ' + port); 			// shoutout to the user
