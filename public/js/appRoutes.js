@@ -19,7 +19,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		})
 
 		.when('/kakao/login', {
-			templateUrl: 'views/kakaologin.html',
+			templateUrl: 'views/kakao.html',
 			controller: 'KakaoController'	
 		})
 

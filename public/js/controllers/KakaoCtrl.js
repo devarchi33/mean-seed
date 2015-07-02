@@ -1,5 +1,11 @@
-angular.module('KakaoCtrl', []).controller('KakaoController', function($scope) {
+angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $http) {
 
-	$scope.tagline = 'Kakao Controller!';	
+	$scope.tagline = 'Kakao Controller!';
+
+	$scope.kakaoLogin = function() {
+        console.log("scope : ");
+    	console.log($scope);
+    	
+    };
 
 });
