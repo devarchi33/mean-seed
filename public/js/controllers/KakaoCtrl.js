@@ -4,7 +4,7 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
 
     var refresh = function() {
         $http.get('/').success(function(response){
-            console.log('get UserInfo!!');
+            console.log('refresh!!');
             $scope = response;
         });
     };
@@ -41,10 +41,8 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
     	console.log("refresh_token : " + refresh_token);
 
 		alert("이용해 주셔서 갑사합니다.");
-		
-		var out = "";
-		document.getElementById("id01").innerHTML = out;
-	    document.getElementById("id01").style.display="block";
+
+        window.onload = setTimeout("location.href='http://localhost:8080'",0);
     };
 
     $scope.kakaoGetUserInfo = function() {
@@ -64,6 +62,12 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
               $scope.userNinckName = arr2.nickname;
               $scope.userThumbnail = arr2.thumbnail_image;
               $scope.userProfileImage = arr2.profile_image;
+              $scope.userInfo = {
+                "id" : arr.id,
+                "nickname" : arr2.nickname,
+                "thumnail_image" : arr2.thumbnail_image,
+                "profile_image" : arr2.profile_image
+              }
 
               refresh();
             },
