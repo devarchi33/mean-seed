@@ -5,10 +5,11 @@ function loginWithKakao() {
 	// 카카오 로그인 버튼을 생성합니다.
 	Kakao.Auth.login({
 	    success: function(authObj) {
-		 	alert(JSON.stringify(authObj));
+	    	var authObj = JSON.stringify(authObj);
+		 	console.log(authObj);
 		},
 		fail: function(err) {
-	  		alert(JSON.stringify(err))
+			console.log(err);
 		}
 	});
 };
