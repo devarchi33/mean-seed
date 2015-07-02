@@ -17,7 +17,6 @@
 	<script src="libs/jquery/dist/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="libs/bootstrap//dist/js/bootstrap.min.js"></script>
-
 	<!-- Kakao -->
 	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 
@@ -32,15 +31,15 @@
 	<script src="js/controllers/TestCtrl.js"></script>
 	<script src="js/services/TestService.js"></script>
 	<script src="js/appRoutes.js"></script>
-	<script src="js/app.js"></script>
-	<script src="js/kakao/login.js"></script>
+	<script src="js/app.js"></script>	
 </head>
+
 <!-- <body ng-app="skyfly33App" ng-controller="NerdController"> -->
 <body ng-app="skyfly33App">
 	<div class="container">
 
 		<!-- HEADER -->
-		<nav class="navbar navbar-inverse">
+		<nav class="navbar navbar-inverse" style="height: 52px;">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/">skyfly33: MEAN Stack SEED Project</a>
 			</div>
@@ -60,6 +59,7 @@
 						<li><a onclick="window.open('http://localhost:8080/startbootstrap-business-frontpage/index.html')">Template06-frontpage</a></li>
 					</ul>
 				</li>
+				<a id="kakao-login-btn" style="padding: 0px; height: 52px; position: relative; left: 670px; top: -49px;"></a>
 			</ul>
 		</nav>
 
@@ -67,5 +67,8 @@
 		<div ng-view></div>
 
 	</div>
+
+	<!-- kakao login -->
+	<script src="js/kakao/login.js"></script>
 </body>
 </html>
