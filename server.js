@@ -97,6 +97,16 @@ app.put('/contactlist/:id', function (req, res) {
 });
 
 // kakao mongodb
+app.get('/kakaouserlist', function (req, res) {
+	console.log('server.js(server log) : I received a GET request!');
+
+	db2.kakaouserlist.find(function(err, docs) {
+		console.log('docs : ');
+	 	console.log(docs);
+	 	res.json(docs)
+	});
+});
+
 app.post('/kakaousersave', function (req, res) {
 	
 	var userInfo = req.body;

@@ -5,7 +5,7 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
     var refresh = function() {
         $http.get('/').success(function(response){
             console.log('refresh!!');
-            $scope = response;
+            $scope.kakao = response;
         });
     };
 
@@ -63,6 +63,8 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
                     "thumbnail_image" : arr2.thumbnail_image,
                     "profile_image" : arr2.profile_image
                 }
+
+                refresh();
             },
             fail: function(error) {
               alert("먼저 로그인 해주세요.");
@@ -72,17 +74,11 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
         });
     };
 
-    $scope.kakaoGetUserList = function() {
-        Kakao.API.request({
-            url: 'https://kapi.kakao.com/v1/user/ids',
-            success: function(res) {
-              alert("사용자 목록 가져오기!");
-            },
-            fail: function(error) {
-              alert("먼저 로그인 해주세요.");
-            }
-            // persistAccessToken: false
-            // persistRefreshToken: 'true'
+    $scope.getKakaoUserList = function() {
+        $http.get('/kakaouserlist').success(function(response){
+            console.log('KakaoCtrl(browser log) : I received the data requested!');
+            $scope.kakaouserlist = response;
+            refresh();
         });
     };
 });

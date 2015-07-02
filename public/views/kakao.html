@@ -31,6 +31,14 @@
 			<td><input type="text" class="form-control" ng-model="userInfo.profile_image"></td>
 		    <td><button type="button" class="btn btn-info" ng-click="kakaoSave(userInfo)">Save</button></td>
 		</tr>
+		<tr ng-repeat="kakaouser in kakaouserlist">
+			<td>{{ kakaouser.id }}</td>
+			<td>{{ kakaouser.nickname }}</td>
+			<td>{{ kakaouser.thumbnail_image }}</td>
+			<td>{{ kakaouser.profile_image }}</td>
+			<td><button class="btn btn-danger" ng-click="remove(kakaouser._id)">Remove</button></td>
+			<td><button class="btn btn-warning" ng-click="edit(kakaouser._id)">Edit</button></td>
+		</tr>
 	</tbody>
 </table>
 <div class="row">
@@ -39,7 +47,7 @@
 			<div class="caption">
 				<h3>Kakao GetUserList</h3>
 				<p>카카오 사용자 목록 -  사용자 목록 가져오기</p>
-				<button class="btn btn-warning" style="width: 82px; height: 30px; border: none; padding: 0;" ng-click="kakaoGetUserList()">GetUserList</button>
+				<button class="btn btn-warning" style="width: 82px; height: 30px; border: none; padding: 0;" ng-click="getKakaoUserList()">GetUserList</button>
 			</div>
 		</div>
 	</div>
