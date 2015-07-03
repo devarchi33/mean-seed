@@ -19,11 +19,6 @@ angular.module('KakaoCtrl', []).controller('KakaoController', function($scope, $
         });
     };
 
-    $scope.kakaoLink = function() {
-        console.log('Kakao Link!');
-        $http.get('/kakaolink');
-    }
-
     $scope.kakaoUpdate = function() {
 
     };

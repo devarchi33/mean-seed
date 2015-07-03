@@ -23,6 +23,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'KakaoController'	
 		})
 
+		.when('/kakao/kakaolinkdemo.html', {
+			templateUrl: 'views/kakaolinkdemo.html',
+			controller: 'KakaoController'	
+		})
+
 		.when('/test', {
 			templateUrl: 'views/test.html',
 			controller: 'TestController'	
