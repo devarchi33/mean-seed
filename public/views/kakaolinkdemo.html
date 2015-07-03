@@ -4,14 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>KakaoLink Demo(Web Button) - Kakao Javascript SDK</title>
-    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
   </head>
   <body>
-    <h3>카카오톡 링크는 카카오톡 앱이 설치되어 있는 모바일 기기에서만 전송 가능합니다.</h3>
-    <a id="kakao-link-btn" href="javascript:;">
-      <img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg" />
-    </a>
+    <div class="jumbotron text-center">
+      <h1>Kakao API</h1>
 
+      <p>{{ tagline }}</p>
+
+      <div class="thumbnail" style="width: 300px; position:relative; left: 360px;">
+        <img src="{{ userThumbnail }}" class="img-thumbnail">
+        <div class="caption">
+          <h3>카카오톡 링크는 카카오톡 앱이 설치되어 있는 모바일 기기에서만 전송 가능합니다.</h3>
+          <a id="kakao-link-btn" href="javascript:;">
+            <img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg" />
+          </a>
+        </div>
+      </div>  
+      <a type="button" class="btn-lg btn-info" href="/kakao/api">돌아가기</a>
+    </div>
+    
     <script>
     // 사용할 앱의 Javascript 키를 설정해 주세요.
     Kakao.init('db831e72d4093199ddd7954e27a2f91b');
